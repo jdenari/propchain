@@ -1,0 +1,39 @@
+.alert-message {
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    font-size: 0.7rem;
+    animation: fadeIn 0.3s ease;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+  
+.alert-message.success {
+    background-color: #16a34a;
+}
+  
+.alert-message.error {
+    background-color: #dc2626;
+}
+  
+.alert-message.info {
+    background-color: #2563eb;
+}
+  
+.alert-message.warning {
+    background-color: #fff0b5;
+    color: #333; 
+}
+  
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

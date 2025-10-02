@@ -1,0 +1,77 @@
+.wallet-alert-placeholder {
+    min-height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-message {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    border-radius: 3px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    box-sizing: border-box;
+}
+
+.alert-message.success {
+    background-color: #16a34a;
+}
+
+.alert-message.error {
+    background-color: #dc2626;
+}
+
+.alert-message.info {
+    background-color: #2563eb;
+}
+
+.alert-message.warning {
+    background-color: #ffe375;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wallet-scroll-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.5rem 0rem;
+    max-height: 170px;
+    overflow-y: auto; 
+    padding-right: 0.25rem;
+}
+
+.wallet-option {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.wallet-option:hover {
+    background-color: #efefef;
+}

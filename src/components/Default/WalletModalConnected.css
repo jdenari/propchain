@@ -1,0 +1,52 @@
+.wallet-connected-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+.wallet-connected-text {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.wallet-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    text-align: start;
+}
+
+.wallet-address {
+    font-family: monospace;
+    font-size: 0.85rem;
+    background-color: #f2f2f2;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.wallet-disconnect-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wallet-disconnect-button {
+    padding: 0.3rem 0.6rem;
+    margin: 1rem 0 0 0;
+    background-color: #ef4444;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 0.8rem;
+}
+
+.wallet-disconnect-button:hover {
+    background-color: #dc2626;
+}

@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Wallet } from 'lucide-react';
+import { useWallet } from '../../context/MainContext';
 
 interface NavbarProps {
     onConnectWallet: () => void;
-    walletConnected: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onConnectWallet, walletConnected }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onConnectWallet }) => {
     const location = useLocation();
     const isActive = (path: string) => location.pathname === path;
+
+    const { address } = useWallet();
+    const walletConnected = !!address;
 
     return (
         <nav className="bg-white/90 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
@@ -25,48 +28,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onConnectWallet, walletConnected
                             </span>
                         </Link>
                     </div>
-                    
+
                     <div className="hidden md:flex items-center space-x-8">
+                        {['/', '/listings', '/favorites', '/dashboard'].map((path) => (
                         <Link
-                            to="/"
+                            key={path}
+                            to={path}
                             className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                                isActive('/') 
-                                ? 'text-blue-600 border-b-2 border-blue-600' 
+                            isActive(path)
+                                ? 'text-blue-600 border-b-2 border-blue-600'
                                 : 'text-gray-600 hover:text-blue-600'
                             }`}
                         >
-                            Home
+                            {path === '/' ? 'Home' : path.replace('/', '').replace(/^\w/, c => c.toUpperCase())}
                         </Link>
-                        <Link
-                            to="/listings"
-                            className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                                isActive('/listings') 
-                                ? 'text-blue-600 border-b-2 border-blue-600' 
-                                : 'text-gray-600 hover:text-blue-600'
-                            }`}
-                        >
-                            Listings
-                        </Link>
-                            <Link
-                            to="/favorites"
-                            className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                                isActive('/favorites') 
-                                ? 'text-blue-600 border-b-2 border-blue-600' 
-                                : 'text-gray-600 hover:text-blue-600'
-                            }`}
-                            >
-                            Favorites
-                        </Link>
-                        <Link
-                            to="/dashboard"
-                            className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                                isActive('/dashboard') 
-                                ? 'text-blue-600 border-b-2 border-blue-600' 
-                                : 'text-gray-600 hover:text-blue-600'
-                            }`}
-                            >
-                            Dashboard
-                        </Link>
+                        ))}
                     </div>
 
                     <div className="flex items-center space-x-4">
@@ -78,9 +54,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onConnectWallet, walletConnected
                                 : 'bg-gradient-to-r from-blue-600 to-emerald-500 text-white hover:from-blue-700 hover:to-emerald-600 shadow-lg hover:shadow-xl transform hover:scale-105'
                             }`}
                         >
-                        <Wallet className="w-4 h-4" />
+                            <Wallet className="w-4 h-4" />
                             <span className="hidden sm:block">
-                                {walletConnected ? 'Wallet Connected' : 'Connect Wallet'}
+                                {walletConnected
+                                ? `${address?.slice(0, 6)}...${address?.slice(-4)}`
+                                : 'Connect Wallet'}
                             </span>
                         </button>
                     </div>

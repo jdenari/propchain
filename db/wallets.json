@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "MetaMask",
+        "type": "extension",
+        "enabled": true,
+        "install_url": "https://metamask.io/download.html"
+    },
+    {
+        "id": 2,
+        "name": "Phantom",
+        "type": "extension",
+        "enabled": false,
+        "install_url": "https://phantom.app/download"
+    },
+    {
+        "id": 3,
+        "name": "Rabby",
+        "type": "extension",
+        "enabled": false,
+        "install_url": "https://rabby.io/"
+    },
+    {
+        "id": 4,
+        "name": "Coinbase",
+        "type": "mobile",
+        "enabled": false,
+        "install_url": "https://www.coinbase.com/wallet/downloads"
+    },
+    {
+        "id": 5,
+        "name": "Binance",
+        "type": "mobile",
+        "enabled": false,
+        "install_url": "https://www.binance.com/en/wallet"
+    }
+]
+  
